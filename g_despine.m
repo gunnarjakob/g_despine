@@ -64,9 +64,9 @@ end
 
 % Create new axes for x and y
 nax(1) = axes('position',[Pos(1)-xoffset Pos(2) 0.00001 Pos(4)],...
-              'ylim',YLim,'TickDir','out','ydir',YDir);
+              'ylim',YLim,'TickDir','out','ydir',YDir,'ytick',YTick);
 nax(2) = axes('position',[Pos(1) Pos(2)-yoffset Pos(3) 0.00001],...
-              'xlim',XLim,'TickDir','out','xdir',XDir);
+              'xlim',XLim,'TickDir','out','xdir',XDir,'xtick',XTick);
 
 % Axis labels
 nax(1).YLabel.String = YLabel;
