@@ -1,4 +1,4 @@
 # g_despine
 Offset axes from origin (Matlab)
 
-![example.png](example.png?raw=true "g_despine example")
+![example.png](<img src="example.png" width="48">?raw=true "g_despine example")
