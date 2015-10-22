@@ -1,4 +1,4 @@
 # g_despine
 Offset axes from origin (Matlab)
 
-<img src="example.png" width="48">
+<img src="example.png" width="400">
