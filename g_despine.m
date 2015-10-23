@@ -41,6 +41,8 @@ XTick  = ax.XTick;
 YTick  = ax.YTick;
 XLabel = ax.XLabel.String;
 YLabel = ax.YLabel.String;
+XAxLoc = ax.XAxisLocation;
+YAxLoc = ax.YAxisLocation;
 
 FontSize = ax.FontSize;
 
@@ -59,14 +61,29 @@ xoffset = offset*xp;
 yoffset = offset*xp*fxyratio;
 else
 yoffset = offset*yp;
-xoffset = offset*xp/fxyratio;
+xoffset = offset*yp/fxyratio;
 end
 
 % Create new axes for x and y
+if strcmp(YAxLoc,'left')
 nax(1) = axes('position',[Pos(1)-xoffset Pos(2) 0.00001 Pos(4)],...
-              'ylim',YLim,'TickDir','out','ydir',YDir,'ytick',YTick);
+              'ylim',YLim,'TickDir','out','ydir',YDir,'ytick',YTick,...
+              'yaxislocation','left');
+elseif strcmp(YAxLoc,'right')
+nax(1) = axes('position',[Pos(1)+Pos(3)+xoffset Pos(2) 0.00001 Pos(4)],...
+              'ylim',YLim,'TickDir','out','ydir',YDir,'ytick',YTick,...
+              'yaxislocation','right');
+end
+
+if strcmp(XAxLoc,'bottom')
 nax(2) = axes('position',[Pos(1) Pos(2)-yoffset Pos(3) 0.00001],...
-              'xlim',XLim,'TickDir','out','xdir',XDir,'xtick',XTick);
+              'xlim',XLim,'TickDir','out','xdir',XDir,'xtick',XTick,...
+              'xaxislocation','bottom');
+elseif strcmp(XAxLoc,'top')
+nax(2) = axes('position',[Pos(1) Pos(2)+Pos(4)+yoffset Pos(3) 0.00001],...
+              'xlim',XLim,'TickDir','out','xdir',XDir,'xtick',XTick,...
+              'xaxislocation','top');
+end
 
 % Axis labels
 nax(1).YLabel.String = YLabel;
